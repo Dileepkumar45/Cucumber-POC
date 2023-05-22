@@ -21,9 +21,9 @@ public class Common_Steps {
 	@After(order = 1)
 	public void tearDown(Scenario scenario) throws Exception {
 		if(scenario.isFailed()) {
-			//Take Screenshot
+			
 			final byte[] shot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-			//Embed into Report
+			
 			scenario.attach(shot, "image/png", scenario.getName());
 		}
 		driver.quit();
